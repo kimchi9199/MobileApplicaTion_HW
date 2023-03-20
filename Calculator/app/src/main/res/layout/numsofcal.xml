@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Count_Cals">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/NumsOfCal"
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:layout_weight="1"
+            android:background="#E1EC77"
+            android:text="The number of calculations"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/numberofcals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="number"
+            android:textSize="50dp"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
