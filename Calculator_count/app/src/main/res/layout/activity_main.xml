@@ -12,6 +12,7 @@
         android:layout_height="100dp"
         android:orientation="horizontal"
         android:id="@+id/utils_layout">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,12 +25,12 @@
                 android:layout_height="72dp"
                 android:layout_margin="12dp"
                 android:backgroundTint="#FFC107"
-                android:text="Count"
+                android:onClick="sendMessage"
+                android:text="History"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:textSize="21dp"
-                app:cornerRadius="36dp"
-                android:onClick="sendMessage"/>
+                android:textStyle="bold"
+                app:cornerRadius="36dp" />
 
         </LinearLayout>
     </LinearLayout>

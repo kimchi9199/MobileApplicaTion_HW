@@ -7,10 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+
+import org.json.JSONObject;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Scriptable;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton button7, button8, button9, buttonAsterisk;
     MaterialButton button4, button5, button6, buttonPlus;
     MaterialButton button1, button2, button3, buttonMinus;
-    MaterialButton buttonAC, button0, buttonDot, buttonEqual;
+    MaterialButton buttonAC, button0, buttonDot,buttonEqual,jsonObjectal;
+    JSONObject jsonObject = new JSONObject();
 
     int historyCount = 0;
 
@@ -86,8 +94,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(!finalResult.equals("Error")){
             result.setText(finalResult);
         }
+        try {
+            jsonObject.put(finalResult, calculateData);
+            writeToFile("HistoryCalculator.json",jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
+    public void writeToFile(String fileName, JSONObject content) {
+        File path = getApplicationContext().getFilesDir();
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(path, fileName));
+//            writer.write(content.getBytes());
+//            writer.close();
+            fileOutputStream.write(content.toString().getBytes());
+            fileOutputStream.close();
+            Toast.makeText(getApplicationContext(), "Wrote to file: "+ fileName, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+//        try {
+//            FileOutputStream fileOutputStream = new FileOutputStream(new File("res/raw/history.json"));
+//            fileOutputStream.write(jsonObject.toString().getBytes());
+//            fileOutputStream.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
+    }
+
+
 
     String getResult(String data){
         try{
