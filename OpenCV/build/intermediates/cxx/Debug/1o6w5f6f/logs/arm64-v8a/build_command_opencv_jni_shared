@@ -1,0 +1,4 @@
+/Users/sarah/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  "/Users/sarah/2022-2023/HK2_2023/Mobile Application/MobileApplicaTion_HW/OpenCV/.cxx/Debug/1o6w5f6f/arm64-v8a" \
+  opencv_jni_shared
